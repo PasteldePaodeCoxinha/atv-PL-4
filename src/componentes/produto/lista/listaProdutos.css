@@ -1,0 +1,101 @@
+.containerListaProduto {
+    background-color: #dddddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3%;
+    width: 64%;
+    border-radius: 10px;
+    box-shadow: 0.2rem 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.produtosCadastrados {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    width: 100%;
+}
+
+.seletoresDeTipoRacaProduto {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.tabelaProdutos {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0.1rem 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.tabelaProdutos tr:nth-child(even) {
+    background-color: #cccccc;
+}
+
+.tabelaProdutos tr:hover {
+    background-color: #bbbbbb;
+}
+
+.tabelaProdutos th {
+    text-align: left;
+    border: 2px solid black;
+    background-color: #E0C524;
+    font-size: 1.2rem;
+}
+
+.tabelaProdutos td {
+    border: 2px solid black;
+    font-size: 1.1rem;
+}
+
+.botaExcluirProduto {
+    font-size: 1.1rem;
+    background: none;
+    border: none;
+    color: #2513EB;
+    text-decoration: underline;
+    z-index: 1;
+    transition: all 0.2s;
+}
+
+.botaExcluirProduto:hover {
+    font-size: 1.1rem;
+    background: none;
+    border: none;
+    color: #1a117c;
+    text-decoration: underline;
+    z-index: 1;
+    transition: all 0.2s;
+}
+
+.botaVoltarListagemProduto {
+    font-size: 1.1rem;
+    background: none;
+    border: none;
+    color: #2513EB;
+    text-decoration: underline;
+    z-index: 1;
+    transition: all 0.2s;
+    width: 7%;
+}
+
+.botaVoltarListagemProduto:hover {
+    font-size: 1.1rem;
+    background: none;
+    border: none;
+    color: #1a117c;
+    text-decoration: underline;
+    z-index: 1;
+    transition: all 0.2s;
+    width: 7%;
+}
+
+.seletorOrdemListaProduto {
+    font-size: 1.1rem;
+    width: 50%;
+    background: transparent;
+    border-width: 2px;
+    border-color: #453E96;
+    box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+}

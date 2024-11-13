@@ -1,0 +1,87 @@
+.containerInformacoesProduto {
+    width: 100%;
+    margin-top: 3.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+
+.containerInformacoesProduto label {
+    font-size: 0.9rem;
+    margin-left: 2rem;
+}
+
+.campoProdutoEditavel,
+.campoProdutoFixo,
+.subCampoProdutoFixo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.campoProdutoEditavel input {
+    margin-left: auto;
+    margin-right: 4rem;
+    font-size: 0.9rem;
+    width: 31%;
+    background: transparent;
+    border-width: 2px;
+    border-color: #453E96;
+    box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.campoProdutoEditavel input:focus {
+    outline: none;
+}
+
+.campoProdutoFixo p {
+    margin-left: auto;
+    margin-right: 2rem;
+    font-size: 0.9rem;
+}
+
+.subCampoProdutoFixo label {
+    font-size: 0.7rem;
+    margin-left: 8rem;
+}
+
+.subCampoProdutoFixo p {
+    margin-left: auto;
+    margin-right: 2rem;
+    font-size: 0.7rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .containerInformacoesProduto label {
+        font-size: 1.3rem;
+        margin-left: 4rem;
+    }
+
+    .campoProdutoEditavel input {
+        margin-left: auto;
+        margin-right: 4rem;
+        font-size: 1.3rem;
+        width: 31%;
+        background: transparent;
+        border-width: 2px;
+        border-color: #453E96;
+        box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .campoProdutoFixo p {
+        margin-left: auto;
+        margin-right: 4rem;
+        font-size: 1.3rem;
+    }
+
+    .subCampoProdutoFixo label {
+        font-size: 1.1rem;
+        margin-left: 16rem;
+    }
+
+    .subCampoProdutoFixo p {
+        margin-left: auto;
+        margin-right: 4rem;
+        font-size: 1.2rem;
+    }
+}

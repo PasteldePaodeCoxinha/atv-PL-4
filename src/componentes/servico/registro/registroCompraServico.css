@@ -1,0 +1,125 @@
+.containerRegistroServico {
+    background-color: #dddddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3%;
+    width: 64%;
+    border-radius: 10px;
+    box-shadow: 0.2rem 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.containerTabelaResgistroServico {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    gap: 43%;
+}
+
+.textoAvisoRegistroServico {
+    font-size: 1.7rem;
+}
+
+.tabelaRegistroServicoClientes {
+    border-collapse: collapse;
+    box-shadow: 0.1rem 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.tabelaRegistroServicoClientes tr:nth-child(even) {
+    background-color: #cccccc;
+}
+
+.tabelaRegistroServicoClientes tbody tr:hover {
+    background-color: #bbbbbb;
+}
+
+.tabelaRegistroServicoClientes th {
+    text-align: left;
+    border: 2px solid black;
+    background-color: #E0C524;
+    font-size: 1.2rem;
+}
+
+.tabelaRegistroServicoClientes td {
+    border: 2px solid black;
+    font-size: 1.1rem;
+}
+
+.linhaSelecionadaRegistroServico {
+    background-color: #453E96 !important;
+    color: white;
+}
+
+.menuRegistroCompraServico {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+}
+
+.botaVoltarRegistroServico {
+    font-size: 1.1rem;
+    background: none;
+    border: none;
+    color: #2513EB;
+    text-decoration: underline;
+    transition: all 0.2s;
+    width: 7%;
+}
+
+.botaVoltarRegistroServico:hover {
+    font-size: 1.1rem;
+    background: none;
+    border: none;
+    color: #1a117c;
+    text-decoration: underline;
+    transition: all 0.2s;
+    width: 7%;
+}
+
+.containerSeletorServico {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.seletorServico {
+    font-size: 1.2rem;
+    width: 100%;
+    background: transparent;
+    border-width: 2px;
+    border-color: #453E96;
+    box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.qtdServicosEscolher {
+    font-size: 0.7rem;
+    width: 17%;
+    background: transparent;
+    border-width: 2px;
+    border-color: #453E96;
+    box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.botaResgitrarCompraServico {
+    background-color: #E0C524;
+    border-color: #000000;
+    color: #000000;
+    text-align: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.botaResgitrarCompraServico:hover {
+    background-color: #F2E746;
+    color: #000000;
+    text-align: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+}

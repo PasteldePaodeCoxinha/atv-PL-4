@@ -1,0 +1,118 @@
+.containerFormularioPet {
+    margin-top: 1rem;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.formularioPet {
+    background-color: #dddddd;
+    display: grid;
+    justify-content: center;
+    padding: 3%;
+    border-radius: 10px;
+    box-shadow: 0.2rem 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.linhaFormularioCadastroPet {
+    display: inline-flex;
+    margin-bottom: 2.7rem;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 1.4rem;
+}
+
+.inputPetForms[type=text],
+.selectPetForms {
+    font-size: 0.7rem;
+    width: 40%;
+    background: transparent;
+    border-width: 2px;
+    border-color: #453E96;
+    box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.inputsComDataFormsPet {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.inputPetForms:focus {
+    outline: none;
+}
+
+.containerBotaoCadastrarPet {
+    text-align: center;
+}
+
+.botaoCadastrarPet {
+    background-color: #E0C524;
+    color: #000000;
+    padding: 0.7rem 1.7rem;
+    text-align: center;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.botaoCadastrarPet:hover {
+    background-color: #F2E746;
+    color: #000000;
+    padding: 0.7rem 1.7rem;
+    text-align: center;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (min-width: 768px) {
+
+    .inputsComDataFormsPet {
+        display: inline-flex;
+        justify-content: space-between;
+        gap: 1.7rem;
+    }
+
+    .linhaFormularioCadastroPet {
+        display: inline-flex;
+        margin-bottom: 4rem;
+        justify-content: flex-start;
+        width: 100%;
+        gap: 1.7rem;
+    }
+
+    .inputPetForms[type=text],
+    .selectPetForms {
+        font-size: 1.2rem;
+        width: 100%;
+        background: transparent;
+        border-width: 2px;
+        border-color: #453E96;
+        box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .botaoCadastrarPet {
+        background-color: #E0C524;
+        border-color: #000000;
+        color: #000000;
+        padding: 1rem 2rem;
+        text-align: center;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .botaoCadastrarPet:hover {
+        background-color: #F2E746;
+        color: #000000;
+        padding: 1rem 2rem;
+        text-align: center;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+    }
+}

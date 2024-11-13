@@ -1,0 +1,96 @@
+.containerListaCliente {
+    background-color: #dddddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    padding: 3%;
+    width: 64%;
+    border-radius: 10px;
+    box-shadow: 0.2rem 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.clientesCadastrados {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    width: 100%;
+}
+
+.tabelaClientes {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0.1rem 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.tabelaClientes tr:nth-child(even) {
+    background-color: #cccccc;
+}
+
+.tabelaClientes tr:hover {
+    background-color: #bbbbbb;
+}
+
+.tabelaClientes th {
+    text-align: left;
+    border: 2px solid black;
+    background-color: #E0C524;
+    font-size: 1.2rem;
+}
+
+.tabelaClientes td {
+    border: 2px solid black;
+    font-size: 1.1rem;
+}
+
+.botaExcluirCliente {
+    font-size: 1.1rem;
+    background: none;
+    border: none;
+    color: #2513EB;
+    text-decoration: underline;
+    z-index: 1;
+    transition: all 0.2s;
+}
+
+.botaExcluirCliente:hover {
+    font-size: 1.1rem;
+    background: none;
+    border: none;
+    color: #1a117c;
+    text-decoration: underline;
+    z-index: 1;
+    transition: all 0.2s;
+}
+
+.botaVoltarListagemCliente {
+    font-size: 1.1rem;
+    background: none;
+    border: none;
+    color: #2513EB;
+    text-decoration: underline;
+    z-index: 1;
+    transition: all 0.2s;
+    width: 7%;
+}
+
+.botaVoltarListagemCliente:hover {
+    font-size: 1.1rem;
+    background: none;
+    border: none;
+    color: #1a117c;
+    text-decoration: underline;
+    z-index: 1;
+    transition: all 0.2s;
+    width: 7%;
+}
+
+.seletorOrdemListaCliente {
+    font-size: 1.1rem;
+    width: 50%;
+    background: transparent;
+    border-width: 2px;
+    border-color: #453E96;
+    box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,127 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.containerFormularioServico {
+    margin-top: 1rem;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.formularioServico {
+    background-color: #dddddd;
+    display: grid;
+    justify-content: center;
+    padding: 3%;
+    border-radius: 10px;
+    box-shadow: 0.2rem 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.linhaFormularioCadastroServico {
+    display: inline-flex;
+    margin-bottom: 2.7rem;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 1.4rem;
+}
+
+.inputServicoForms[type=text],
+.inputServicoForms[type=number] {
+    font-size: 0.7rem;
+    width: 40%;
+    background: transparent;
+    border-width: 2px;
+    border-color: #453E96;
+    box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.inputsComDataFormsServico {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.inputServicoForms:focus {
+    outline: none;
+}
+
+.containerBotaoCadastrarServico {
+    text-align: center;
+}
+
+.botaoCadastrarServico {
+    background-color: #E0C524;
+    color: #000000;
+    padding: 0.7rem 1.7rem;
+    text-align: center;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.botaoCadastrarServico:hover {
+    background-color: #F2E746;
+    color: #000000;
+    padding: 0.7rem 1.7rem;
+    text-align: center;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (min-width: 768px) {
+
+    .inputsComDataFormsServico {
+        display: inline-flex;
+        justify-content: space-between;
+        gap: 1.7rem;
+    }
+
+    .linhaFormularioCadastroServico {
+        display: inline-flex;
+        margin-bottom: 4rem;
+        justify-content: flex-start;
+        width: 100%;
+        gap: 1.7rem;
+    }
+
+    .inputServicoForms[type=text] {
+        font-size: 1.2rem;
+        width: 100%;
+        background: transparent;
+        border-width: 2px;
+        border-color: #453E96;
+        box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .botaoCadastrarServico {
+        background-color: #E0C524;
+        border-color: #000000;
+        color: #000000;
+        padding: 1rem 2rem;
+        text-align: center;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .botaoCadastrarServico:hover {
+        background-color: #F2E746;
+        color: #000000;
+        padding: 1rem 2rem;
+        text-align: center;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+    }
+}

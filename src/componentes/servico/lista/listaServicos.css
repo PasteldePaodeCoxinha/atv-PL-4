@@ -1,0 +1,101 @@
+.containerListaServico {
+    background-color: #dddddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3%;
+    width: 64%;
+    border-radius: 10px;
+    box-shadow: 0.2rem 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.servicosCadastrados {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    width: 100%;
+}
+
+.seletoresDeTipoRacaServico {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.tabelaServicos {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0.1rem 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.tabelaServicos tr:nth-child(even) {
+    background-color: #cccccc;
+}
+
+.tabelaServicos tr:hover {
+    background-color: #bbbbbb;
+}
+
+.tabelaServicos th {
+    text-align: left;
+    border: 2px solid black;
+    background-color: #E0C524;
+    font-size: 1.2rem;
+}
+
+.tabelaServicos td {
+    border: 2px solid black;
+    font-size: 1.1rem;
+}
+
+.botaExcluirServico {
+    font-size: 1.1rem;
+    background: none;
+    border: none;
+    color: #2513EB;
+    text-decoration: underline;
+    z-index: 1;
+    transition: all 0.2s;
+}
+
+.botaExcluirServico:hover {
+    font-size: 1.1rem;
+    background: none;
+    border: none;
+    color: #1a117c;
+    text-decoration: underline;
+    z-index: 1;
+    transition: all 0.2s;
+}
+
+.botaVoltarListagemServico {
+    font-size: 1.1rem;
+    background: none;
+    border: none;
+    color: #2513EB;
+    text-decoration: underline;
+    z-index: 1;
+    transition: all 0.2s;
+    width: 7%;
+}
+
+.botaVoltarListagemServico:hover {
+    font-size: 1.1rem;
+    background: none;
+    border: none;
+    color: #1a117c;
+    text-decoration: underline;
+    z-index: 1;
+    transition: all 0.2s;
+    width: 7%;
+}
+
+.seletorOrdemListaServico {
+    font-size: 1.1rem;
+    width: 50%;
+    background: transparent;
+    border-width: 2px;
+    border-color: #453E96;
+    box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+}

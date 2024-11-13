@@ -1,0 +1,67 @@
+.containerInformacoesPet {
+    width: 100%;
+    margin-top: 3.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+
+.containerInformacoesPet label {
+    font-size: 0.9rem;
+    margin-left: 2rem;
+}
+
+.campoPetEditavel,
+.campoPetFixo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.campoPetEditavel input,
+.selectPetAlterar {
+    margin-left: auto;
+    margin-right: 4rem;
+    font-size: 0.9rem;
+    width: 31%;
+    background: transparent;
+    border-width: 2px;
+    border-color: #453E96;
+    box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.campoPetEditavel input:focus,
+.selectPetAlterar {
+    outline: none;
+}
+
+.campoPetFixo p {
+    margin-left: auto;
+    margin-right: 2rem;
+    font-size: 0.9rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .containerInformacoesPet label {
+        font-size: 1.3rem;
+        margin-left: 4rem;
+    }
+
+    .campoPetEditavel input,
+    .selectPetAlterar {
+        margin-left: auto;
+        margin-right: 4rem;
+        font-size: 1.3rem;
+        width: 31%;
+        background: transparent;
+        border-width: 2px;
+        border-color: #453E96;
+        box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .campoPetFixo p {
+        margin-left: auto;
+        margin-right: 4rem;
+        font-size: 1.3rem;
+    }
+}

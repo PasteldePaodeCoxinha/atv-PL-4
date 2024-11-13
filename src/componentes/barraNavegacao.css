@@ -1,0 +1,70 @@
+.barraDeNavegacao {
+    width: 100%;
+    border-bottom: 0.1rem solid #000000;
+    margin-bottom: 0.7rem;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.containerDaBarraDeNavegacao {
+    display: flex;
+    justify-content: center;
+    gap: 1.7rem;
+}
+
+.botoesDaBarraDeNavegacao {
+    display: inline-block;
+}
+
+.linkDaBarraDeNavegacao {
+    color: #ffffff;
+    transition: all 0.2s;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.linkDaBarraDeNavegacao:hover {
+    color: #E0C524;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.tituloBarraNavegacao {
+    margin-left: auto;
+    color: #FFFFFF;
+    margin-right: 2rem;
+    font-size: 1rem;
+    text-decoration: underline;
+}
+
+@media only screen and (min-width: 768px) {
+
+    .containerDaBarraDeNavegacao {
+        display: flex;
+        justify-content: center;
+        gap: 2.1rem;
+    }
+
+    .linkDaBarraDeNavegacao {
+        color: #ffffff;
+        transition: all 0.2s;
+        text-decoration: none;
+        font-size: 1.2rem;
+    }
+
+    .linkDaBarraDeNavegacao:hover {
+        color: #E0C524;
+        transition: all 0.2s;
+        text-decoration: none;
+    }
+
+    .tituloBarraNavegacao {
+        margin-left: auto;
+        margin-right: 2rem;
+        color: #FFFFFF;
+        font-size: 1.4rem;
+        text-decoration: underline;
+    }
+
+}
