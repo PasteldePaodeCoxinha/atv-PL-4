@@ -52,11 +52,11 @@ export default function AlterarCliente(props: props) {
         )
     }
 
-    const formatarData = (data: Date): string => {
-        const dataPartes = (data.toISOString().split("T")[0]).split("-")
-        const dataCerta = dataPartes[2] + "/" + dataPartes[1] + "/" + dataPartes[0]
-        return dataCerta
-    }
+    // const formatarData = (data: Date): string => {
+    //     const dataPartes = (data.toISOString().split("T")[0]).split("-")
+    //     const dataCerta = dataPartes[2] + "/" + dataPartes[1] + "/" + dataPartes[0]
+    //     return dataCerta
+    // }
 
     useEffect(() => {
         deletarTelefone()
@@ -79,7 +79,7 @@ export default function AlterarCliente(props: props) {
                 <input type="email" value={email} onChange={mudarValorEmail} />
             </div>
 
-            <div className="campoClienteFixo">
+            {/* <div className="campoClienteFixo">
                 <label>CPF:</label>
                 <p>{cliente.getCpf.getValor} | {formatarData(cliente.getCpf.getDataEmissao)}</p>
             </div>
@@ -87,7 +87,7 @@ export default function AlterarCliente(props: props) {
             <div className="campoClienteFixo">
                 <label>RG:</label>
                 <p>{cliente.getRgs[0].getValor} | {formatarData(cliente.getRgs[0].getDataEmissao)}</p>
-            </div>
+            </div> */}
 
             <div className="campoClienteFixo">
                 <label>Qtd Produtos Consumidos:</label>

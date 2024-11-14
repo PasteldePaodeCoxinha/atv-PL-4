@@ -2,15 +2,54 @@ import { useCallback, useEffect, useState } from "react";
 import "./listaClientes.css"
 import Cliente from "../../../modelo/cliente";
 import AlterarCliente from "../alterar/alterarCliente";
+import Endereco from "../../../modelo/endereco";
+import Telefone from "../../../modelo/telefone";
+
+// type props = {
+//     clientes: Cliente[]
+// }
 
 export default function ListaCliente() {
     const [clientes, setClientes] = useState<Cliente[]>([])
     const [cliente, setCliente] = useState<Cliente | undefined>(undefined)
     const [ordemLista, setOrdemLista] = useState<number>(0)
 
-    const pegarUmCliente = useCallback((nomeEscolhido: string) => {
+    const pegarUmCliente = useCallback(async (nomeEscolhido: string) => {
         const cliente = clientes.find(c => c.nome === nomeEscolhido)
-        setCliente(cliente)
+        if (cliente) {
+            try {
+                const response = await fetch(`http://localhost:32831/cliente/${cliente.id}`, {
+                    method: "GET",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                })
+                const data = await response.json()
+                if (response.status === 302) {
+                    setCliente(new Cliente(data.nome,
+                        data.nomeSocial,
+                        data.email,
+                        new Endereco(data.endereco.estado,
+                            data.endereco.cidade,
+                            data.endereco.bairro,
+                            data.endereco.rua,
+                            data.endereco.numero,
+                            data.endereco.codigoPostal,
+                            data.endereco.informacoesAdicionais),
+                        (data.telefones.map((t: { id: number, numero: string, ddd: string }) => {
+                            return (new Telefone(t.ddd, t.numero))
+                        }))
+                    ))
+                } else {
+                    alert(data)
+                }
+            } catch (error) {
+                alert((error as Error).message)
+            }
+        } else {
+            alert("Esse cliente não existe")
+        }
     }, [clientes])
 
     const excluirCliente = useCallback((e: React.MouseEvent<HTMLButtonElement, MouseEvent>, nome: string) => {
