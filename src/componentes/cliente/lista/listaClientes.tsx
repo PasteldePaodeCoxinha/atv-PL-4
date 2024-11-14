@@ -22,7 +22,8 @@ export default function ListaCliente() {
                     method: "GET",
                     headers: {
                         'Accept': 'application/json',
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*'
                     },
                 })
                 const data = await response.json()
@@ -52,9 +53,32 @@ export default function ListaCliente() {
         }
     }, [clientes])
 
-    const excluirCliente = useCallback((e: React.MouseEvent<HTMLButtonElement, MouseEvent>, nome: string) => {
-        setClientes(clientes.filter(c => c.nome !== nome))
+    const excluirCliente = useCallback(async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, nome: string) => {
         e.stopPropagation()
+        const cliente = clientes.find(c => c.nome === nome)
+
+        if (cliente) {
+            try {
+                const response = await fetch("http://localhost:32831/cliente/excluir", {
+                    method: "DELETE",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*'
+                    },
+                    body: JSON.stringify({
+                        "id": cliente.id
+                    })
+                })
+                if (response.ok) {
+                    alert("Cliente exlcuído")
+                    setClientes(clientes.filter(c => c.nome !== nome))
+                }
+            } catch (error) {
+                console.log(error);
+                alert((error as Error).message)
+            }
+        }
     }, [clientes])
 
     const gerarListaCliente = useCallback(() => {
@@ -91,7 +115,8 @@ export default function ListaCliente() {
                 method: "GET",
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
                 },
             })
 
