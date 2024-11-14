@@ -3,12 +3,8 @@ import "./listaClientes.css"
 import Cliente from "../../../modelo/cliente";
 import AlterarCliente from "../alterar/alterarCliente";
 
-type props = {
-    clientes: Cliente[]
-}
-
-export default function ListaCliente(props: props) {
-    const [clientes, setClientes] = useState<Cliente[]>(props.clientes)
+export default function ListaCliente() {
+    const [clientes, setClientes] = useState<Cliente[]>([])
     const [cliente, setCliente] = useState<Cliente | undefined>(undefined)
     const [ordemLista, setOrdemLista] = useState<number>(0)
 
@@ -43,7 +39,6 @@ export default function ListaCliente(props: props) {
                 }>
                     <td>{c.nome}</td>
                     <td>{c.nomeSocial}</td>
-                    <td>{c.getCpf.getDataEmissao.toISOString().split("T")[0]} {c.getCpf.getValor}</td>
                     <td><button className="botaExcluirCliente" onClick={(e) => excluirCliente(e, c.nome)}>Excluir</button></td>
                 </tr>
             )
@@ -51,9 +46,36 @@ export default function ListaCliente(props: props) {
         }
     }, [ordemLista, clientes, excluirCliente, pegarUmCliente])
 
+    const getClientes = async () => {
+        try {
+            const response = await fetch("http://localhost:32831/cliente/clientes", {
+                method: "GET",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+            })
+
+            const data = await response.json()
+
+            if (response.status === 302) {
+                setClientes(data)
+            } else {
+                alert(data)
+            }
+
+        } catch (error) {
+            alert((error as Error).message)
+        }
+    }
+
     useEffect(() => {
         gerarListaCliente()
     }, [gerarListaCliente])
+
+    useEffect(() => {
+        getClientes()
+    })
 
     return (
         <div className="containerListaCliente">
@@ -73,7 +95,6 @@ export default function ListaCliente(props: props) {
                             <tr className="headerTabelaClientes">
                                 <th>Nome</th>
                                 <th>Nome Social</th>
-                                <th>CPF</th>
                                 <th>Excluir</th>
                             </tr>
                         </thead>
