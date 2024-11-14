@@ -2,14 +2,14 @@ import { useState } from "react";
 import "./roteadorCliente.css"
 import BarraNavegacao from "../../barraNavegacao";
 import FormularioCadastroCliente from "../../cliente/forms/formularioCadastroCliente";
-import Cliente from "../../../modelo/cliente";
+// import Cliente from "../../../modelo/cliente";
 import ListaCliente from "../../cliente/lista/listaClientes";
 
-type props = {
-    clientes: Cliente[]
-}
+// type props = {
+//     clientes: Cliente[]
+// }
 
-export default function RoteadorCliente(props: props) {
+export default function RoteadorCliente() {
     const [tela, setTela] = useState<string>("Cadastro")
 
     const selecionarView = (novaTela: string, evento: Event) => {
@@ -26,14 +26,14 @@ export default function RoteadorCliente(props: props) {
         return (
             <div className="paginaListaCliente">
                 {barraNavegacao}
-                <ListaCliente clientes={props.clientes} />
+                <ListaCliente />
             </div>
         )
     } else if (tela === 'Cadastro') {
         return (
             <div className="paginaCadastroCliente">
                 {barraNavegacao}
-                <FormularioCadastroCliente clientes={props.clientes} />
+                <FormularioCadastroCliente />
             </div>
         )
     } else {

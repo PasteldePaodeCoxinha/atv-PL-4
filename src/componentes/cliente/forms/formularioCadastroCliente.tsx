@@ -7,11 +7,11 @@ import Telefone from "../../../modelo/telefone";
 import "./formularioCadastroCliente.css"
 import Endereco from "../../../modelo/endereco";
 
-type props = {
-    clientes: Cliente[]
-}
+// type props = {
+//     clientes: Cliente[]
+// }
 
-export default function FormularioCadastroCliente(props: props) {
+export default function FormularioCadastroCliente() {
     const [nome, setNome] = useState<string>("")
     const [nomeSocial, setNomeSocial] = useState<string>("")
     const [email, setEmail] = useState<string>("")
