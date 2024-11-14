@@ -46,7 +46,7 @@ export default function ListaCliente() {
         }
     }, [ordemLista, clientes, excluirCliente, pegarUmCliente])
 
-    const getClientes = async () => {
+    const getClientes = useCallback(async () => {
         try {
             const response = await fetch("http://localhost:32831/cliente/clientes", {
                 method: "GET",
@@ -67,7 +67,7 @@ export default function ListaCliente() {
         } catch (error) {
             alert((error as Error).message)
         }
-    }
+    }, [])
 
     useEffect(() => {
         gerarListaCliente()
@@ -75,7 +75,7 @@ export default function ListaCliente() {
 
     useEffect(() => {
         getClientes()
-    })
+    }, [getClientes])
 
     return (
         <div className="containerListaCliente">
