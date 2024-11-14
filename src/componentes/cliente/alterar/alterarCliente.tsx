@@ -64,6 +64,10 @@ export default function AlterarCliente(props: props) {
 
     return (
         <div className="containerInformacoesCliente">
+            <button className="botaoConfirmarAlterarCliente">
+                CONFIRMAR ALTERAÇÕES
+            </button>
+
             <div className="campoClienteEditavel">
                 <label>Nome:</label>
                 <input type="text" value={nome} onChange={mudarValorNome} />

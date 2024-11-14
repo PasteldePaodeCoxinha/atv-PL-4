@@ -45,7 +45,8 @@
 
 .botaoAddTelCliente,
 .botaoConfirmarTel,
-.botaoDeletarTelCliente {
+.botaoDeletarTelCliente,
+.botaoConfirmarAlterarCliente {
     background-color: #E0C524;
     width: 32%;
     margin: auto;
@@ -59,7 +60,8 @@
 
 .botaoAddTelCliente:hover,
 .botaoConfirmarTel:hover,
-.botaoDeletarTelCliente:hover {
+.botaoDeletarTelCliente:hover,
+.botaoConfirmarAlterarCliente {
     background-color: #F2E746;
     width: 32%;
     margin: auto;
@@ -102,7 +104,8 @@
 
     .botaoAddTelCliente,
     .botaoConfirmarTel,
-    .botaoDeletarTelCliente {
+    .botaoDeletarTelCliente,
+    .botaoConfirmarAlterarCliente {
         background-color: #E0C524;
         width: 17%;
         margin: auto;
@@ -117,7 +120,8 @@
 
     .botaoAddTelCliente:hover,
     .botaoConfirmarTel:hover,
-    .botaoDeletarTelCliente:hover {
+    .botaoDeletarTelCliente:hover,
+    .botaoConfirmarAlterarCliente {
         background-color: #F2E746;
         width: 17%;
         margin: auto;
