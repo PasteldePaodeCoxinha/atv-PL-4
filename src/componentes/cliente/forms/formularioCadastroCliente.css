@@ -23,7 +23,8 @@
 }
 
 .inputClienteForms[type=text],
-.inputClienteForms[type=email] {
+.inputClienteForms[type=email],
+.selectClienteForms {
     font-size: 0.7rem;
     width: 40%;
     background: transparent;
@@ -93,7 +94,8 @@
     }
 
     .inputClienteForms[type=text],
-    .inputClienteForms[type=email] {
+    .inputClienteForms[type=email],
+    .selectClienteForms {
         font-size: 1.2rem;
         width: 100%;
         background: transparent;

@@ -1,12 +1,13 @@
-import CPF from "./cpf"
+// import CPF from "./cpf"
 import Endereco from "./endereco"
 import Pet from "./pet"
 import Produto from "./produto"
-import RG from "./rg"
+// import RG from "./rg"
 import Servico from "./servico"
 import Telefone from "./telefone"
 
 export default class Cliente {
+    public id?: number
     public nome: string
     public nomeSocial: string
     private email: string
