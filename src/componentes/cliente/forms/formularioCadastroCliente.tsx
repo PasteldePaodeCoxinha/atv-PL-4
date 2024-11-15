@@ -67,7 +67,11 @@ export default function FormularioCadastroCliente() {
     }
 
     const mudarValorCep = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setCep(e.target.value)
+        if (!isNaN(Number(e.target.value).valueOf())) {
+            setCep(e.target.value)
+        } else {
+            setCep(cep)
+        }
     }
 
     const mudarValorInfoAdi = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -88,11 +92,11 @@ export default function FormularioCadastroCliente() {
     // }
 
     // const mudarValorRg = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //     if (!isNaN(Number(e.target.value).valueOf())) {
-    //         setValorRg(e.target.value)
-    //     } else {
-    //         setValorRg(valorCpf)
-    //     }
+    // if (!isNaN(Number(e.target.value).valueOf())) {
+    //     setValorRg(e.target.value)
+    // } else {
+    //     setValorRg(valorCpf)
+    // }
     // }
 
     // const mudarValorDataRg = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -100,11 +104,19 @@ export default function FormularioCadastroCliente() {
     // }
 
     const mudarValorTelefone1 = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setTelefone1(e.target.value)
+        if (!isNaN(Number(e.target.value).valueOf())) {
+            setTelefone1(e.target.value)
+        } else {
+            setTelefone1(telefone1)
+        }
     }
 
     const mudarValorTelefone2 = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setTelefone2(e.target.value)
+        if (!isNaN(Number(e.target.value).valueOf())) {
+            setTelefone2(e.target.value)
+        } else {
+            setTelefone2(telefone2)
+        }
     }
 
     const clienteCriarAdicionar = async (e: React.ChangeEvent<HTMLFormElement>) => {
@@ -331,7 +343,7 @@ export default function FormularioCadastroCliente() {
 
                     <input type="text"
                         className="inputClienteForms"
-                        placeholder="CEP"
+                        placeholder="CEP (Números)"
                         value={cep}
                         onChange={mudarValorCep}
                         required />
@@ -348,18 +360,16 @@ export default function FormularioCadastroCliente() {
 
                     <input type="tel"
                         className="inputClienteForms"
-                        placeholder="Telefone 1 (+00 123456789)"
+                        placeholder="Telefone 1 (Números)"
                         value={telefone1}
                         onChange={mudarValorTelefone1}
-                        pattern="+[0-9]{2} [0-9]{9}"
                         required />
 
                     <input type="tel"
                         className="inputClienteForms"
-                        placeholder="Telefone 2 (+00 123456789)"
+                        placeholder="Telefone 2 (Números)"
                         value={telefone2}
-                        onChange={mudarValorTelefone2}
-                        pattern="+[0-9]{2} [0-9]{9}" />
+                        onChange={mudarValorTelefone2} />
 
                 </div>
 
