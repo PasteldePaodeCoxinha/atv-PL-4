@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from "react";
-import Cliente from "../../../modelo/cliente";
 // import CPF from "../../../modelo/cpf";
 // import RG from "../../../modelo/rg";
-import Telefone from "../../../modelo/telefone";
 import "./formularioCadastroCliente.css"
+import Telefone from "../../../modelo/telefone";
 import Endereco from "../../../modelo/endereco";
+import Cliente from "../../../modelo/cliente";
 
 // type props = {
 //     clientes: Cliente[]
@@ -110,18 +110,36 @@ export default function FormularioCadastroCliente() {
     const clienteCriarAdicionar = async (e: React.ChangeEvent<HTMLFormElement>) => {
         e.preventDefault()
 
-        const listaTel = [new Telefone(telefone1.substring(0, 2), telefone1.substring(2))]
+        const listaTel = []
+
+        const tel1: Telefone = { ddd: telefone1.substring(0, 2), numero: telefone1.substring(2) }
+        listaTel.push(tel1)
 
         if (telefone2 !== "" && telefone2 !== undefined) {
-            listaTel.push(new Telefone(telefone2.substring(0, 2), telefone2.substring(2)))
+            const tel2: Telefone = { ddd: telefone2.substring(0, 2), numero: telefone2.substring(2) }
+            listaTel.push(tel2)
         }
 
-        const endereco = new Endereco(estado, cidade, bairro, rua, numero, cep, (infoAdi !== "" ? infoAdi : undefined))
+        const endereco: Endereco = {
+            estado: estado,
+            cidade: cidade,
+            bairro: bairro,
+            rua: rua,
+            numero: numero,
+            codigoPostal: cep,
+            informacoesAdicionais: (infoAdi !== "" ? infoAdi : undefined)
+        }
 
         // let datasCpf = dataCpf.split("")
         // let datasRg = dataRg.split("-")
 
-        const cliente = new Cliente(nome, nomeSocial, email, endereco, listaTel)
+        const cliente: Cliente = {
+            nome: nome,
+            nomeSocial: nomeSocial,
+            email: email,
+            endereco: endereco,
+            telefones: listaTel
+        }
 
         try {
             const response = await fetch("http://localhost:32831/cliente/cadastrar", {
@@ -328,23 +346,25 @@ export default function FormularioCadastroCliente() {
 
                 <div className="linhaFormularioCadastroCliente">
 
-                    <input type="text"
+                    <input type="tel"
                         className="inputClienteForms"
-                        placeholder="Telefone 1"
+                        placeholder="Telefone 1 (+00 123456789)"
                         value={telefone1}
                         onChange={mudarValorTelefone1}
+                        pattern="+[0-9]{2} [0-9]{9}"
                         required />
 
-                    <input type="text"
+                    <input type="tel"
                         className="inputClienteForms"
-                        placeholder="Telefone 2"
+                        placeholder="Telefone 2 (+00 123456789)"
                         value={telefone2}
-                        onChange={mudarValorTelefone2} />
+                        onChange={mudarValorTelefone2}
+                        pattern="+[0-9]{2} [0-9]{9}" />
 
                 </div>
 
                 <div className="containerBotaoCadastrarCliente">
-                    <button className="botaoCadastrarCliente">CADASTRAR</button>
+                    <button type="submit" className="botaoCadastrarCliente">CADASTRAR</button>
                 </div>
             </form>
 

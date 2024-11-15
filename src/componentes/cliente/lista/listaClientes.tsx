@@ -1,9 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import "./listaClientes.css"
-import Cliente from "../../../modelo/cliente";
 import AlterarCliente from "../alterar/alterarCliente";
-import Endereco from "../../../modelo/endereco";
-import Telefone from "../../../modelo/telefone";
+import Cliente from "../../../modelo/cliente";
 
 // type props = {
 //     clientes: Cliente[]
@@ -12,7 +10,7 @@ import Telefone from "../../../modelo/telefone";
 export default function ListaCliente() {
     const [clientes, setClientes] = useState<Cliente[]>([])
     const [cliente, setCliente] = useState<Cliente | undefined>(undefined)
-    const [ordemLista, setOrdemLista] = useState<number>(0)
+    // const [ordemLista, setOrdemLista] = useState<number>(0)
 
     const pegarUmCliente = useCallback(async (nomeEscolhido: string) => {
         const cliente = clientes.find(c => c.nome === nomeEscolhido)
@@ -28,21 +26,7 @@ export default function ListaCliente() {
                 })
                 const data = await response.json()
                 if (response.status === 302) {
-                    setCliente(new Cliente(data.nome,
-                        data.nomeSocial,
-                        data.email,
-                        new Endereco(data.endereco.estado,
-                            data.endereco.cidade,
-                            data.endereco.bairro,
-                            data.endereco.rua,
-                            data.endereco.numero,
-                            data.endereco.codigoPostal,
-                            data.endereco.informacoesAdicionais),
-                        (data.telefones.map((t: { id: number, numero: string, ddd: string }) => {
-                            return (new Telefone(t.ddd, t.numero))
-                        })),
-                        data.id
-                    ))
+                    setCliente(data as Cliente)
                 } else {
                     alert(data)
                 }
@@ -88,28 +72,28 @@ export default function ListaCliente() {
         } else {
             let clientesTemp = clientes
 
-            if (ordemLista === 0) {
-                clientesTemp = clientes
-            } else if (ordemLista === 1) {
-                clientesTemp = clientes.toSorted((a, b) => b.getProdutosConsumidos.length - a.getProdutosConsumidos.length)
-            } else if (ordemLista === 2) {
-                clientesTemp = clientes.toSorted((a, b) => b.getServicosConsumidos.length - a.getServicosConsumidos.length)
-            } else if (ordemLista === 3) {
-                clientesTemp = clientes.toSorted((a, b) => b.getValorGasto - a.getValorGasto)
-            }
+            // if (ordemLista === 0) {
+            //     clientesTemp = clientes
+            // } else if (ordemLista === 1) {
+            //     clientesTemp = clientes.toSorted((a, b) => b.getProdutosConsumidos.length - a.getProdutosConsumidos.length)
+            // } else if (ordemLista === 2) {
+            //     clientesTemp = clientes.toSorted((a, b) => b.getServicosConsumidos.length - a.getServicosConsumidos.length)
+            // } else if (ordemLista === 3) {
+            //     clientesTemp = clientes.toSorted((a, b) => b.getValorGasto - a.getValorGasto)
+            // }
 
             let listaCliente = clientesTemp.map((c, i) =>
                 <tr className="linhaTabelaClientes" key={i} onClick={() => pegarUmCliente(c.nome)
                 }>
                     <td>{c.nome}</td>
                     <td>{c.nomeSocial}</td>
-                    <td>{c.getEmail}</td>
+                    <td>{c.email}</td>
                     <td><button className="botaExcluirCliente" onClick={(e) => excluirCliente(e, c.nome)}>Excluir</button></td>
                 </tr>
             )
             return listaCliente
         }
-    }, [ordemLista, clientes, excluirCliente, pegarUmCliente])
+    }, [clientes, excluirCliente, pegarUmCliente])
 
     const getClientes = useCallback(async () => {
         try {
@@ -147,14 +131,14 @@ export default function ListaCliente() {
         <div className="containerListaCliente">
             {cliente === undefined ? (
                 <div className="clientesCadastrados">
-                    <select className="seletorOrdemListaCliente"
+                    {/* <select className="seletorOrdemListaCliente"
                         onChange={e => setOrdemLista(Number(e.target.value).valueOf())}
                     >
                         <option value={0}>Ordenar por ordem cadastrado</option>
                         <option value={1}>Ordenar por qtd produtos consumidos</option>
                         <option value={2}>Ordenar por qtd serviços consumidos</option>
                         <option value={3}>Ordenar por valor gasto</option>
-                    </select>
+                    </select> */}
 
                     <table className="tabelaClientes">
                         <thead>
