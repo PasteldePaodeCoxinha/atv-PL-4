@@ -20,7 +20,7 @@ export default class Cliente {
     private servicosConsumidos: Servico[]
     private valorGasto: number
     private pets: Pet[]
-    constructor(nome: string, nomeSocial: string, email: string, endereco: Endereco, telefones: Array<Telefone>) {
+    constructor(nome: string, nomeSocial: string, email: string, endereco: Endereco, telefones: Array<Telefone>, id?: number) {
         this.nome = nome
         this.nomeSocial = nomeSocial
         this.email = email
@@ -29,6 +29,7 @@ export default class Cliente {
         // this.dataCadastro = new Date()
         this.endereco = endereco
         this.telefones = telefones
+        this.id = id
         this.produtosConsumidos = []
         this.servicosConsumidos = []
         this.valorGasto = 0

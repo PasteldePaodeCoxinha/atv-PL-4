@@ -40,7 +40,8 @@ export default function ListaCliente() {
                             data.endereco.informacoesAdicionais),
                         (data.telefones.map((t: { id: number, numero: string, ddd: string }) => {
                             return (new Telefone(t.ddd, t.numero))
-                        }))
+                        })),
+                        data.id
                     ))
                 } else {
                     alert(data)
@@ -102,6 +103,7 @@ export default function ListaCliente() {
                 }>
                     <td>{c.nome}</td>
                     <td>{c.nomeSocial}</td>
+                    <td>{c.getEmail}</td>
                     <td><button className="botaExcluirCliente" onClick={(e) => excluirCliente(e, c.nome)}>Excluir</button></td>
                 </tr>
             )
@@ -159,6 +161,7 @@ export default function ListaCliente() {
                             <tr className="headerTabelaClientes">
                                 <th>Nome</th>
                                 <th>Nome Social</th>
+                                <th>Email</th>
                                 <th>Excluir</th>
                             </tr>
                         </thead>
@@ -171,7 +174,10 @@ export default function ListaCliente() {
             ) : (
 
                 <>
-                    <button className="botaVoltarListagemCliente" onClick={() => { setCliente(undefined) }}>
+                    <button className="botaVoltarListagemCliente" onClick={() => {
+                        setCliente(undefined)
+                        getClientes()
+                    }}>
                         Voltar
                     </button>
                     <AlterarCliente cliente={cliente} />

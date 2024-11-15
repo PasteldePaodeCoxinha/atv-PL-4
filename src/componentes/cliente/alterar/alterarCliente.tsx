@@ -8,38 +8,37 @@ type props = {
 }
 
 export default function AlterarCliente(props: props) {
-    const cliente = props.cliente
     const [menuTel, setMenuTel] = useState<Boolean>(false)
     const [novoDdd, setNovoDdd] = useState<string>("")
     const [novoTel, setNovoTel] = useState<string>("")
     const [numeroEscolhido, setNumeroEscolhido] = useState<string>("")
-    const [nome, setNome] = useState<string>(cliente.nome)
-    const [nomeSocial, setNomeSocial] = useState<string>(cliente.nomeSocial)
-    const [email, setEmail] = useState<string>(cliente.getEmail)
+    const [nome, setNome] = useState<string>(props.cliente.nome)
+    const [nomeSocial, setNomeSocial] = useState<string>(props.cliente.nomeSocial)
+    const [email, setEmail] = useState<string>(props.cliente.getEmail)
 
     const adicionarTelefone = () => {
-        cliente.getTelefones.push(new Telefone(novoDdd, novoTel))
+        props.cliente.getTelefones.push(new Telefone(novoDdd, novoTel))
         setMenuTel(false)
     }
 
     const deletarTelefone = useCallback(() => {
-        cliente.setTelefones = cliente.getTelefones.filter(t => t.getNumero !== numeroEscolhido)
+        props.cliente.setTelefones = props.cliente.getTelefones.filter(t => t.getNumero !== numeroEscolhido)
         setNumeroEscolhido("")
-    }, [cliente, numeroEscolhido])
+    }, [props.cliente, numeroEscolhido])
 
     const mudarValorNome = (e: React.ChangeEvent<HTMLInputElement>) => {
         setNome(e.target.value)
-        cliente.nome = e.target.value
+        props.cliente.nome = e.target.value
     }
 
     const mudarValorNomeSocial = (e: React.ChangeEvent<HTMLInputElement>) => {
         setNomeSocial(e.target.value)
-        cliente.nomeSocial = e.target.value
+        props.cliente.nomeSocial = e.target.value
     }
 
     const mudarValorEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value)
-        cliente.setEmail = e.target.value
+        props.cliente.setEmail = e.target.value
     }
 
     const menuAdicionarTelefone = () => {
@@ -58,13 +57,40 @@ export default function AlterarCliente(props: props) {
     //     return dataCerta
     // }
 
+    const alterarCliente = async () => {
+        console.log(props.cliente);
+        
+        try {
+            const response = await fetch("http://localhost:32831/cliente/atualizar", {
+                method: "PUT",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
+                body: JSON.stringify(props.cliente)
+            })
+
+            if (response.ok) {
+                alert("Cliente alterado com sucesso")
+            } else {
+                console.log(await response.json());
+                alert("Erro ao alterar cliente")
+            }
+        } catch (error) {
+            console.log(error);
+            alert((error as Error).message)
+        }
+    }
+
     useEffect(() => {
         deletarTelefone()
     }, [deletarTelefone])
 
     return (
         <div className="containerInformacoesCliente">
-            <button className="botaoConfirmarAlterarCliente">
+            <button className="botaoConfirmarAlterarCliente"
+            onClick={() => alterarCliente()}>
                 CONFIRMAR ALTERAÇÕES
             </button>
 
@@ -95,25 +121,25 @@ export default function AlterarCliente(props: props) {
 
             <div className="campoClienteFixo">
                 <label>Qtd Produtos Consumidos:</label>
-                <p>{cliente.getProdutosConsumidos.length}</p>
+                <p>{props.cliente.getProdutosConsumidos.length}</p>
             </div>
 
             <div className="campoClienteFixo">
                 <label>Qtd Serviços consumidos:</label>
-                <p>{cliente.getServicosConsumidos.length}</p>
+                <p>{props.cliente.getServicosConsumidos.length}</p>
             </div>
 
             <div className="campoClienteFixo">
                 <label>Total gasto:</label>
-                <p>R$ {((cliente.getValorGasto * 100) * 0.01).toFixed(2).replace(".", ",")}</p>
+                <p>R$ {((props.cliente.getValorGasto * 100) * 0.01).toFixed(2).replace(".", ",")}</p>
             </div>
 
             <div className="campoClienteFixo">
                 <label>Telefone 1:</label>
-                <p>+{cliente.getTelefones[0].getDdd} {cliente.getTelefones[0].getNumero}</p>
-                {cliente.getTelefones[1] ?
+                <p>+{props.cliente.getTelefones[0].getDdd} {props.cliente.getTelefones[0].getNumero}</p>
+                {props.cliente.getTelefones[1] ?
                     (
-                        <button onClick={() => setNumeroEscolhido(cliente.getTelefones[0].getNumero)}
+                        <button onClick={() => setNumeroEscolhido(props.cliente.getTelefones[0].getNumero)}
                             className="botaoDeletarTelCliente">
                             Deletar Telefone
                         </button>
@@ -123,12 +149,12 @@ export default function AlterarCliente(props: props) {
                 }
             </div>
 
-            {cliente.getTelefones[1] ?
+            {props.cliente.getTelefones[1] ?
                 (
                     <div className="campoClienteFixo">
                         <label>Telefone 2:</label>
-                        <p>+{cliente.getTelefones[1].getDdd} {cliente.getTelefones[1].getNumero}</p>
-                        <button onClick={() => setNumeroEscolhido(cliente.getTelefones[0].getNumero)}
+                        <p>+{props.cliente.getTelefones[1].getDdd} {props.cliente.getTelefones[1].getNumero}</p>
+                        <button onClick={() => setNumeroEscolhido(props.cliente.getTelefones[0].getNumero)}
                             className="botaoDeletarTelCliente">
                             Deletar Telefone
                         </button>

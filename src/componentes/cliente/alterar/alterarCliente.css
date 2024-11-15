@@ -61,7 +61,7 @@
 .botaoAddTelCliente:hover,
 .botaoConfirmarTel:hover,
 .botaoDeletarTelCliente:hover,
-.botaoConfirmarAlterarCliente {
+.botaoConfirmarAlterarCliente:hover {
     background-color: #F2E746;
     width: 32%;
     margin: auto;
@@ -121,7 +121,7 @@
     .botaoAddTelCliente:hover,
     .botaoConfirmarTel:hover,
     .botaoDeletarTelCliente:hover,
-    .botaoConfirmarAlterarCliente {
+    .botaoConfirmarAlterarCliente:hover {
         background-color: #F2E746;
         width: 17%;
         margin: auto;
