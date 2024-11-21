@@ -15,6 +15,13 @@ export default function AlterarCliente(props: props) {
     const [nome, setNome] = useState<string>(props.cliente.nome)
     const [nomeSocial, setNomeSocial] = useState<string>(props.cliente.nomeSocial)
     const [email, setEmail] = useState<string>(props.cliente.email)
+    const [numero, setNumero] = useState<string>(props.cliente.endereco.numero)
+    const [rua, setRua] = useState<string>(props.cliente.endereco.rua)
+    const [bairro, setBairro] = useState<string>(props.cliente.endereco.bairro)
+    const [cidade, setCidade] = useState<string>(props.cliente.endereco.cidade)
+    const [estado, setEstado] = useState<string>(props.cliente.endereco.estado)
+    const [cep, setCep] = useState<string>(props.cliente.endereco.codigoPostal)
+    const [infoAdi, setInfoAdi] = useState<string>(props.cliente.endereco.informacoesAdicionais ? props.cliente.endereco.informacoesAdicionais : "")
 
     const adicionarTelefone = () => {
         props.cliente.telefones.push({ ddd: novoDdd, numero: novoTel } as Telefone)
@@ -39,6 +46,41 @@ export default function AlterarCliente(props: props) {
     const mudarValorEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value)
         props.cliente.email = e.target.value
+    }
+
+    const mudarValorNumero = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setNumero(e.target.value)
+        props.cliente.endereco.numero = e.target.value
+    }
+
+    const mudarValorRua = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setRua(e.target.value)
+        props.cliente.endereco.rua = e.target.value
+    }
+
+    const mudarValorBairro = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setBairro(e.target.value)
+        props.cliente.endereco.bairro = e.target.value
+    }
+
+    const mudarValorCidade = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setCidade(e.target.value)
+        props.cliente.endereco.cidade = e.target.value
+    }
+
+    const mudarValorEstado = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setEstado(e.target.value)
+        props.cliente.endereco.estado = e.target.value
+    }
+
+    const mudarValorCep = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setCep(e.target.value)
+        props.cliente.endereco.codigoPostal = e.target.value
+    }
+
+    const mudarValorInfoAdi = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setInfoAdi(e.target.value)
+        props.cliente.endereco.informacoesAdicionais = e.target.value
     }
 
     const menuAdicionarTelefone = () => {
@@ -107,6 +149,41 @@ export default function AlterarCliente(props: props) {
             <div className="campoClienteEditavel">
                 <label>Email:</label>
                 <input type="email" value={email} onChange={mudarValorEmail} />
+            </div>
+
+            <div className="campoClienteEditavel">
+                <label>Número:</label>
+                <input type="text" value={numero} onChange={mudarValorNumero} />
+            </div>
+
+            <div className="campoClienteEditavel">
+                <label>Rua:</label>
+                <input type="text" value={rua} onChange={mudarValorRua} />
+            </div>
+
+            <div className="campoClienteEditavel">
+                <label>Bairro:</label>
+                <input type="text" value={bairro} onChange={mudarValorBairro} />
+            </div>
+
+            <div className="campoClienteEditavel">
+                <label>Cidade:</label>
+                <input type="text" value={cidade} onChange={mudarValorCidade} />
+            </div>
+
+            <div className="campoClienteEditavel">
+                <label>Estado:</label>
+                <input type="text" value={estado} onChange={mudarValorEstado} />
+            </div>
+
+            <div className="campoClienteEditavel">
+                <label>Código Postal:</label>
+                <input type="text" value={cep} onChange={mudarValorCep} />
+            </div>
+
+            <div className="campoClienteEditavel">
+                <label>Informações adicionais:</label>
+                <input type="text" value={infoAdi} onChange={mudarValorInfoAdi} />
             </div>
 
             {/* <div className="campoClienteFixo">
